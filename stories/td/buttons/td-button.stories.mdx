@@ -1,0 +1,111 @@
+import { Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import TDButton from "../../../components/td/button/Button.vue";
+
+<Meta
+  title="Buttons/TDButton"
+  component={TDButton}
+  argTypes={{
+    color: {
+      options: ["default", "primary"],
+      control: { type: "select" },
+    },
+    large: {
+      control: "boolean",
+    },
+    small: {
+      control: "boolean",
+    },
+  }}
+/>
+
+export const Template = (args) => ({
+  // Components used in your story `template` are defined in the `components` object
+  components: { "td-button": TDButton },
+  // The story's `args` need to be mapped into the template through the `setup()` method
+  setup() {
+    return {
+      args,
+    };
+  },
+  // And then the `args` are bound to your component with `v-bind="args"`
+  template: '<td-button v-bind="args">Button</td-button>',
+});
+
+# Button
+
+<Canvas>
+  <Story
+    name="button"
+    parameters={{
+      docs: { source: { code: "<td-button>Button</td-button>" } },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="button" />
+
+## Sizes
+
+<Canvas>
+  <Story
+    name="largeSize"
+    args={{
+      large: true,
+    }}
+    parameters={{
+      docs: { source: { code: '<td-button :large="true">Button</td-button>' } },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="defaultSize"
+    parameters={{
+      docs: { source: { code: "<td-button>Button</td-button>" } },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="smallSize"
+    args={{
+      small: true,
+    }}
+    parameters={{
+      docs: { source: { code: '<td-button :small="true">Button</td-button>' } },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Colors
+
+<Canvas>
+  <Story
+    name="defaultColor"
+    args={{
+      color: "default",
+    }}
+    parameters={{
+      docs: { source: { code: "<td-button>Button</td-button>" } },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="primaryColor"
+    args={{
+      color: "primary",
+    }}
+    parameters={{
+      docs: {
+        source: { code: '<td-button color="primary">Button</td-button>' },
+      },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

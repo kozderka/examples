@@ -1,0 +1,78 @@
+import { Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import TDInputText from "../../../components/td/input/Text.vue";
+
+<Meta
+  title="Input/TDInputText"
+  component={TDInputText}
+  argTypes={{
+    large: {
+      control: "boolean",
+    },
+    small: {
+      control: "boolean",
+    },
+  }}
+/>
+
+export const Template = (args) => ({
+  // Components used in your story `template` are defined in the `components` object
+  components: { "td-input-text": TDInputText },
+  // The story's `args` need to be mapped into the template through the `setup()` method
+  setup() {
+    return {
+      args,
+    };
+  },
+  // And then the `args` are bound to your component with `v-bind="args"`
+  template: '<td-input-text v-bind="args" />',
+});
+
+# Text
+
+<Canvas>
+  <Story
+    name="text"
+    parameters={{
+      docs: { source: { code: "<td-input-text />" } },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="text" />
+
+## Sizes
+
+<Canvas>
+  <Story
+    name="largeSize"
+    args={{
+      large: true,
+    }}
+    parameters={{
+      docs: { source: { code: '<td-input-text :large="true" />' } },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="defaultSize"
+    parameters={{
+      docs: { source: { code: "<td-input-text />" } },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="smallSize"
+    args={{
+      small: true,
+    }}
+    parameters={{
+      docs: { source: { code: '<td-input-text :small="true">' } },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

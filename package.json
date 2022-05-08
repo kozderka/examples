@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "name": "@kozderka/examples",
+  "scripts": {
+    "dev": "nuxt dev",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "@storybook/builder-vite": "^0.1.30",
+    "@tailwindcss/typography": "^0.5.2",
+    "autoprefixer": "^10.4.5",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.24"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/vue3": "^6.4.22",
+    "nuxt": "3.0.0-rc.1"
+  }
+}
